@@ -4,24 +4,28 @@ public class App {
     
     public static void main(String[] args) {
 
-        Konto konto1 = new Konto();
-        Konto konto2 = new Konto();
-        Konto konto3 = new Konto();
-        output("Konto1 enthält "+ konto1.getKontostand());
-        output("Konto2 enthält "+ konto2.getKontostand());
-        output("Konto3 enthält "+ konto3.getKontostand());
+        Konto[] kontos = { new Konto("Jasper"), new Konto("Peter"), new Konto("Benjamin") };
 
-        konto1.multiplyBy(2);
-        konto2.multiplyBy(3);
-        konto3.multiplyBy(10);
-        output("Konto1 enthält jetzt doppelt soviel heisst "+ konto1.getKontostand());
-        output("Konto2 enthält jetzt 3mal soviel heisst "+ konto2.getKontostand());
-        output("Konto3 enthält jetzt das 10fache heisst "+ konto3.getKontostand());
+        output_konto_stand(kontos);
+
+        kontos[0].multiplyBy(2);
+        kontos[1].multiplyBy(3);
+        kontos[2].multiplyBy(10);
+
+        output_konto_stand(kontos);
+
     }
 
 
     private static void output(String outputStr) {
         System.out.println(outputStr);
-    } 
+    }
+
+    private static void output_konto_stand(Konto[] konto){
+        for (int x = 0;  konto.length != x;  x++) {
+            output("Konto von " + konto[x].getName() + " enthält " + konto[x].getKontostand());
+        }
+    }
+
 
 }
